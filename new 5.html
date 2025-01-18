@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object and Array Example</title>
+</head>
+
+<body>
+    <h1>Object and Array Operations</h1>
+    <div id="output"></div>
+
+    <script>
+        let person1 = { name: "Rahul", age: 15, hobby: "Basketball" };
+        let person2 = { name: "Aarav", age: 16, hobby: "Coding" };
+        let person3 = { name: "Sanya", age: 14, hobby: "Reading" };
+
+        let peopleArray = [person1, person2, person3];
+
+        let output = `
+      <p><strong>Person 1 Name:</strong> ${person1.name}</p>
+      <p><strong>Person 2 Age:</strong> ${person2.age}</p>
+      <p><strong>Person 3 Hobby:</strong> ${person3.hobby}</p>
+    `;
+
+        output += `
+      <p><strong>First Person:</strong> ${JSON.stringify(peopleArray[0])}</p>
+      <p><strong>Second Person Hobby:</strong> ${peopleArray[1].hobby}</p>
+    `;
+
+        let namesArray = peopleArray.map(person => person.name);
+        output += `<p><strong>Names joined with commas:</strong> ${namesArray.join(", ")}</p>`;
+
+        let removedPerson = peopleArray.pop();
+        output += `
+      <p><strong>Removed Person:</strong> ${JSON.stringify(removedPerson)}</p>
+      <p><strong>Updated Array:</strong> ${JSON.stringify(peopleArray)}</p>
+    `;
+
+        document.getElementById("output").innerHTML = output;
+    </script>
+</body>
+
+</html>
